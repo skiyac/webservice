@@ -200,8 +200,10 @@ class Officieldesvacances {
             if($this->ville     )      $this->request->setHeader('ville'        , $this->ville          );
             if($this->pays      )      $this->request->setHeader('pays'         , $this->pays           );
             if($this->mdp       )      $this->request->setHeader('dob'          , $this->mdp            );
-                                       $this->request->setHeader('email'        , $this->email          );
-                                       $this->request->setHeader('id_partenaire', $this->id_partenaire  );
+            if($this->email     )      $this->request->setHeader('email'        , $this->email          );
+                else throw new Exception('Erreur: email ');
+            if($this->id_partenaire)   $this->request->setHeader('id_partenaire', $this->id_partenaire  );
+                else throw new Exception('Erreur: partenaire ID ');
             if($this->url_return)      $this->request->setHeader('url_return'   , $this->url_return     );
             if($this->optin_nl  )      $this->request->setHeader('optin_nl'     , $this->optin_nl       );
             
